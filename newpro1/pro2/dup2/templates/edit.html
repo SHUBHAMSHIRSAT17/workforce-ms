@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color:black;
+            padding: 20px;
+            background-image: url('https://img.freepik.com/free-photo/view-old-tree-lake-with-snow-covered-mountains-cloudy-day_181624-28954.jpg?size=626&ext=jpg&ga=GA1.1.1137476377.1705568227&semt=ais');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background-color: transparent;
+            padding: 30px;
+
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <div class="container mt-5">
+        <form action="/update/{{res.id}}" method="post">
+            {% csrf_token %}
+            <p><label for="id_eid">Eid:</label> <input type="text" name="eid" maxlength="20" required id="id_eid" value="{{res.eid}}"></p>
+            <p><label for="id_ename">Ename:</label> <input type="text" name="ename" maxlength="50" required id="id_ename" value="{{res.ename}}"></p>
+            <p><label for="id_eemail">Eemail:</label> <input type="email" name="eemail" maxlength="254" required id="id_eemail" value="{{res.eemail}}"></p>
+            <p><label for="id_econtact">Econtact:</label> <input type="text" name="econtact" maxlength="50" required id="id_econtact" value="{{res.econtact}}"></p>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

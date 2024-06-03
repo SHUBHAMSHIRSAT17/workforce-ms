@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: white;
+        padding-top: 150px;
+        padding-left: 400px;
+        padding-bottom: 150px;
+        padding-right: 150px;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMNDebE_iB63jz9TL-DsmILCkt0U75SB_OnXXGmZhQ3PStMcsovdeDs0sgbQ&s');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+    }
+
+    table,
+    tr,
+    th {
+        border: 3px solid black;
+        padding: 10px;
+
+        justify-content: center;
+
+    }
+
+    td {
+        border: 3px solid black;
+        padding: 5px;
+    }
+
+    form,
+    button {
+        padding: 6px;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th> ID</th>
+            <th> EID</th>
+            <th> NAME</th>
+            <th> EMAILID</th>
+            <th> CONTACT</th>
+            <th> ACTION</th>
+        </tr>
+        {% for i in res %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.eid}}</td>
+            <td>{{i.ename}}</td>
+            <td>{{i.eemail}}</td>
+            <td>{{i.econtact}}</td>
+            <td> <a href="/edit/{{i.id}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> edit</a>
+                <a href="/delete/{{i.id}}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="saveform">
+        <button type="submit" href ="home/" >home</button>
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+    </form>
+
+</body>
+
+</html>
